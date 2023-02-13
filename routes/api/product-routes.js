@@ -10,9 +10,10 @@ router.get('/', (req, res) => {
   Product.findAll({
 
   })
+  .then()
+  .catch()
 })
-.then()
-.catch()
+
 
 // get one product
 router.get('/:id', (req, res) => {
@@ -21,9 +22,10 @@ router.get('/:id', (req, res) => {
   Product.findOne({
 
   })
+  .then()
+  .catch()
 })
-.then()
-.catch()
+
 
 // create new product
 router.post('/', (req, res) => {
@@ -104,8 +106,12 @@ router.delete('/:id', (req, res) => {
   Product.destroy({
 
   })
+  .then()
+  .catch(err => {
+  console.log(err);
+  res.status(500).json(err);
+  })
 })
-.then()
-.catch()
+
 
 module.exports = router;
