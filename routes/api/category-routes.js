@@ -7,11 +7,20 @@ router.get('/', (req, res) => {
   // find all categories
   // be sure to include its associated Products
   Category.findAll({
-
+    attributes: ['id', 'category_name'],
+    include: [
+      {
+        model: Product,
+        attributes: ['id', 'product_name', 'price', 'stock', 'category_id']
+      }
+    ]
   })
+    .then()
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    })
 })
-.then()
-.catch()
 
 
 router.get('/:id', (req, res) => {
@@ -20,35 +29,47 @@ router.get('/:id', (req, res) => {
   Category.findOne({
 
   })
+    .then()
+    .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  })
 })
-.then()
-.catch()
 
 router.post('/', (req, res) => {
   // create a new category
   Category.create({
 
   })
+  .then()
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  })
 })
-.then()
-.catch()
 
 router.put('/:id', (req, res) => {
   // update a category by its `id` value
   Category.update({
 
   })
+  .then()
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  })
 })
-.then()
-.catch()
 
 router.delete('/:id', (req, res) => {
   // delete a category by its `id` value
   Category.delete({
 
   })
+  .then()
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  })
 })
-.then()
-.catch()
 
 module.exports = router;
